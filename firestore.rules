@@ -1,0 +1,208 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net (Default Deny)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Startup connection check document
+    match /test/connection {
+      allow get: if true;
+      allow list, write: if false;
+    }
+
+    // --- Primitive Helpers ---
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function isStringWithBounds(val, minLen, maxLen) {
+      return val is string && val.size() >= minLen && val.size() <= maxLen;
+    }
+
+    // --- Public Form Validation Blueprints ---
+    function isValidUsageRequest(data) {
+      return data.keys().hasAll([
+          'id', 'requesterName', 'organization', 'contactInfo', 'recordIdentifier',
+          'purpose', 'scope', 'usageFormat', 'duration', 'status', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'id', 'requesterName', 'organization', 'contactInfo', 'recordIdentifier',
+          'purpose', 'scope', 'usageFormat', 'duration', 'pledgeAccepted', 'additionalNotes',
+          'status', 'createdAt', 'updatedAt'
+        ])
+        && isValidId(data.id)
+        && isStringWithBounds(data.requesterName, 2, 160)
+        && isStringWithBounds(data.organization, 1, 200)
+        && isStringWithBounds(data.contactInfo, 4, 200)
+        && isStringWithBounds(data.recordIdentifier, 1, 100)
+        && isStringWithBounds(data.purpose, 2, 500)
+        && isStringWithBounds(data.scope, 2, 300)
+        && isStringWithBounds(data.usageFormat, 2, 200)
+        && isStringWithBounds(data.duration, 1, 120)
+        && data.status == 'Mới tiếp nhận'
+        && (!('pledgeAccepted' in data) || data.pledgeAccepted is bool)
+        && (!('additionalNotes' in data) || isStringWithBounds(data.additionalNotes, 0, 1000))
+        && isStringWithBounds(data.createdAt, 10, 40)
+        && isStringWithBounds(data.updatedAt, 10, 40);
+    }
+
+    function isValidAttachmentMeta(meta) {
+      return meta is map
+        && meta.keys().hasAll(['fileName', 'mimeType', 'sizeBytes'])
+        && meta.keys().hasOnly(['fileName', 'mimeType', 'sizeBytes'])
+        && isStringWithBounds(meta.fileName, 1, 180)
+        && meta.mimeType in ['image/jpeg', 'image/png', 'image/webp', 'application/pdf']
+        && meta.sizeBytes is int
+        && meta.sizeBytes > 0
+        && meta.sizeBytes <= 5242880;
+    }
+
+    function isValidTakedownRequest(data) {
+      return data.keys().hasAll([
+          'id', 'requesterName', 'requesterRole', 'contactInfo', 'recordIdentifier',
+          'reason', 'affectedScope', 'status', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'id', 'requestCategory', 'requesterName', 'requesterRole', 'contactInfo',
+          'recordIdentifier', 'reason', 'affectedScope', 'rightsBasisDescription',
+          'supportingUrl', 'attachmentMeta', 'status', 'createdAt', 'updatedAt'
+        ])
+        && isValidId(data.id)
+        && (!('requestCategory' in data) || data.requestCategory in [
+          'Báo cáo sử dụng hình ảnh trái phép',
+          'Yêu cầu tạm ẩn hình ảnh',
+          'Yêu cầu gỡ bỏ tư liệu',
+          'Yêu cầu chỉnh sửa thông tin sai lệch'
+        ])
+        && isStringWithBounds(data.requesterName, 2, 160)
+        && isStringWithBounds(data.requesterRole, 2, 160)
+        && isStringWithBounds(data.contactInfo, 4, 200)
+        && isStringWithBounds(data.recordIdentifier, 1, 100)
+        && isStringWithBounds(data.reason, 5, 1000)
+        && isStringWithBounds(data.affectedScope, 2, 300)
+        && (!('rightsBasisDescription' in data) || isStringWithBounds(data.rightsBasisDescription, 0, 600))
+        && (!('supportingUrl' in data) || isStringWithBounds(data.supportingUrl, 0, 500))
+        && (!('attachmentMeta' in data) || isValidAttachmentMeta(data.attachmentMeta))
+        && data.status == 'Tiếp nhận khẩn'
+        && isStringWithBounds(data.createdAt, 10, 40)
+        && isStringWithBounds(data.updatedAt, 10, 40);
+    }
+
+    // --- Strictly Locked Legacy Admin / Internal Collections ---
+    match /users/{userId} {
+      allow read, write: if false;
+      match /private/{infoId} {
+        allow read, write: if false;
+      }
+    }
+
+    match /roles/{roleId} {
+      allow read, write: if false;
+    }
+
+    match /rights_evidence/{evidenceId} {
+      allow read, write: if false;
+    }
+
+    match /audit_logs/{logId} {
+      allow read, write: if false;
+    }
+
+    // --- Public Read-Only Heritage Catalog & Rights Metadata (No Client Writes) ---
+    match /heritage_records/{recordId} {
+      allow get: if isValidId(recordId) && resource.data.visibilityStatus == 'public';
+      allow list: if resource.data.visibilityStatus == 'public';
+      allow write: if false;
+    }
+
+    match /record_versions/{versionId} {
+      allow get: if isValidId(versionId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    match /record_files/{fileId} {
+      allow get: if isValidId(fileId)
+        && resource.data.isPubliclyReadable == true
+        && resource.data.fileCategory in ['access_copy', 'preservation_copy', 'display_web', 'copy_file'];
+      allow list: if resource.data.isPubliclyReadable == true
+        && resource.data.fileCategory in ['access_copy', 'preservation_copy', 'display_web', 'copy_file'];
+      allow write: if false;
+    }
+
+    match /record_holders/{holderId} {
+      allow get: if isValidId(holderId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    match /rights_holders/{rightsHolderId} {
+      allow get: if isValidId(rightsHolderId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    match /permissions/{permissionId} {
+      allow get: if isValidId(permissionId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    match /permission_scopes/{scopeId} {
+      allow get: if isValidId(scopeId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    match /source_references/{sourceId} {
+      allow get: if isValidId(sourceId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    match /record_sources/{linkId} {
+      allow get: if isValidId(linkId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    match /verification_logs/{logId} {
+      allow get: if isValidId(logId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    match /consent_records/{consentId} {
+      allow get: if isValidId(consentId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    match /record_relationships/{relId} {
+      allow get: if isValidId(relId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    // --- Public Write-Only Citizen Forms (PII Protected Against Reading) ---
+    match /usage_requests/{requestId} {
+      allow read, update, delete: if false;
+      allow create: if isValidId(requestId)
+        && isValidUsageRequest(incoming())
+        && incoming().id == requestId;
+    }
+
+    match /takedown_requests/{requestId} {
+      allow read, update, delete: if false;
+      allow create: if isValidId(requestId)
+        && isValidTakedownRequest(incoming())
+        && incoming().id == requestId;
+    }
+  }
+}

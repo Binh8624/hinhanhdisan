@@ -1,0 +1,1406 @@
+
+VAI TRÒ CỦA BẠN
+
+Bạn là một đội ngũ phát triển sản phẩm chuyên nghiệp gồm:
+- Product Manager chuyên phân tích yêu cầu nghiệp vụ.
+- Chuyên gia bảo tàng số, lưu trữ và quản lý di sản tư liệu.
+- Chuyên gia quản lý quyền sở hữu, quyền sử dụng và quyền khai thác hình ảnh.
+- UI/UX Designer chuyên thiết kế bảo tàng số và nền tảng di sản văn hóa.
+- Senior Frontend Developer.
+- Senior Backend Developer.
+- Database Architect.
+- Security Engineer.
+- QA Engineer chuyên kiểm thử ứng dụng trước khi nghiệm thu.
+
+Bạn phải xây dựng một ỨNG DỤNG WEB HOÀN CHỈNH, CÓ CHỨC NĂNG THỰC SỰ, CÓ DỮ LIỆU, CÓ NGHIỆP VỤ, CÓ LƯU TRỮ, CÓ TÌM KIẾM, CÓ XUẤT DỮ LIỆU VÀ CÓ THỂ TRIỂN KHAI CÔNG KHAI.
+
+Không được chỉ tạo giao diện mẫu.
+Không được tạo các nút bấm không có chức năng.
+Không được giả lập kết quả thành công khi thao tác chưa thực sự được xử lý.
+Không được bỏ qua các yêu cầu trong prompt.
+Không được tự ý thu hẹp phạm vi đề tài.
+Không được thay thế nghiệp vụ bằng các trang giới thiệu tĩnh.
+
+==================================================
+I. THÔNG TIN DỰ ÁN
+==================================================
+
+1. Tên dự án
+
+DI SẢN SỐ
+HERITAGE RIGHTS & DIGITAL MUSEUM
+
+Tên tiếng Việt đầy đủ:
+NỀN TẢNG QUẢN LÝ QUYỀN SỞ HỮU, BẢN SAO VÀ KHAI THÁC HÌNH ẢNH DI SẢN
+
+Slogan:
+"Minh bạch quyền – Tôn trọng bản gốc – Khai thác di sản có trách nhiệm."
+
+2. Thông tin người thực hiện
+
+- Họ và tên: Trần Thanh Bình
+- Mã sinh viên: PH61165
+- Nhóm: Group 1
+- Mã ý tưởng: J02
+- Nhóm chủ đề: Quyền sở hữu, bản sao và khai thác hình ảnh di sản
+- Tên ứng dụng theo phân công: Quản lý quyền với tư liệu gia đình và dòng họ
+- Chương trình: Thực tập sinh Đợt 15
+- Đơn vị: IMTA TECH x FPT Polytechnic
+- Tính chất: Dự án xã hội phi lợi nhuận.
+
+3. Phạm vi đề tài
+
+CHỦ ĐỀ CHÍNH BẮT BUỘC:
+QUYỀN SỞ HỮU, BẢN SAO VÀ KHAI THÁC HÌNH ẢNH DI SẢN.
+
+Đề tài J02 tập trung vào việc ghi nhận, quản lý, kiểm tra và công khai có kiểm soát các quyền liên quan đến tư liệu di sản.
+
+Nền tảng phải giải quyết được những vấn đề sau:
+
+- Ai đang lưu giữ bản gốc?
+- Bản gốc hiện ở đâu?
+- Ai là chủ sở hữu hoặc chủ thể có quyền đối với tư liệu?
+- Ai là người tạo ra tư liệu?
+- Ai là người chụp hoặc tạo bản số?
+- Ai có quyền cho phép công bố?
+- Việc cho phép công bố có bằng chứng gì?
+- Được phép hiển thị ảnh hay không?
+- Được phép tải ảnh hay không?
+- Được phép sử dụng trong học tập, nghiên cứu hay không?
+- Được phép chỉnh sửa, in ấn, thương mại hóa hay không?
+- Bản đang hiển thị là bản gốc, bản sao hay bản số?
+- Bản số được tạo từ bản gốc hay từ bản sao?
+- Tình trạng bản gốc như thế nào?
+- Những phần nào không được công bố?
+- Quyền sử dụng có thời hạn hay có điều kiện không?
+- Nếu người cho phép rút lại sự đồng ý thì hệ thống xử lý thế nào?
+
+Quản lý tư liệu gia đình và dòng họ là trọng tâm nghiệp vụ của J02, nhưng không được giới hạn toàn bộ sản phẩm chỉ trong phạm vi gia phả hoặc ảnh gia đình.
+
+Nền tảng phải có khả năng quản lý các loại tư liệu:
+- Ảnh tư liệu.
+- Văn bản cổ.
+- Gia phả.
+- Thư từ.
+- Nhật ký.
+- Sắc phong.
+- Văn bia.
+- Mộc bản.
+- Hoành phi, câu đối.
+- Bản vẽ, bản khắc.
+- Tư liệu nghe nhìn.
+- Hiện vật có hình ảnh số hóa.
+- Các bản sao và bản số của tư liệu.
+
+Mỗi tư liệu phải có hồ sơ riêng, quyền riêng, nguồn riêng và trạng thái kiểm chứng riêng.
+
+==================================================
+II. NGUYÊN TẮC TRIỂN KHAI KHÔNG ĐƯỢC VI PHẠM
+==================================================
+
+1. Không được bịa dữ liệu.
+
+Tuyệt đối không tự tạo:
+- Tên tư liệu có thật nhưng không có căn cứ.
+- Người sở hữu.
+- Người đang lưu giữ.
+- Người cho phép công bố.
+- Chữ ký đồng ý.
+- Biên bản cho phép.
+- Giấy phép sử dụng.
+- Nguồn tư liệu.
+- Đường dẫn nguồn.
+- Mã hồ sơ lưu trữ.
+- Niên đại.
+- Tình trạng hiện vật.
+- Thông tin bản gốc.
+- Ảnh hiện vật hoặc tư liệu thật.
+
+Không được sử dụng dữ liệu giả để tạo cảm giác website đã có đủ 15 bản ghi.
+
+Nếu thiếu thông tin, ghi rõ:
+- CHƯA CÓ DỮ LIỆU.
+- CHƯA XÁC MINH.
+- CHƯA ĐỦ BẰNG CHỨNG XÁC ĐỊNH QUYỀN.
+- CHƯA CÓ NGƯỜI CHO PHÉP CÔNG BỐ.
+- CHƯA ĐƯỢC PHÉP HIỂN THỊ HÌNH ẢNH.
+- CHƯA ĐƯỢC PHÉP TẢI XUỐNG.
+- CHƯA KIỂM CHỨNG NGUỒN.
+- KHÔNG ĐỦ CƠ SỞ KẾT LUẬN.
+
+2. Không sử dụng ảnh AI thay cho tư liệu thật.
+
+Tuyệt đối không dùng ảnh do AI sinh để minh họa như thể đó là:
+- Ảnh hiện vật thật.
+- Ảnh tư liệu lịch sử.
+- Ảnh gia phả thật.
+- Ảnh văn bia thật.
+- Ảnh sắc phong thật.
+- Ảnh hiện vật bảo tàng thật.
+
+Nếu chưa có ảnh được phép sử dụng:
+- Hiển thị vùng ảnh trống có thiết kế phù hợp.
+- Hiển thị thông báo "Chưa có tư liệu hình ảnh được phép công bố".
+- Không lấy ảnh trên Internet rồi tự nhận là tư liệu của dự án.
+
+Ảnh trang trí giao diện chỉ được dùng làm họa tiết thiết kế, tuyệt đối không được nhầm lẫn với ảnh tư liệu.
+
+3. Phân biệt các loại quyền.
+
+Không được đánh đồng:
+- Quyền sở hữu vật mang tin.
+- Quyền quản lý hoặc lưu giữ.
+- Quyền tác giả đối với nội dung.
+- Quyền của người chụp ảnh.
+- Quyền đối với bản sao.
+- Quyền đối với bản số.
+- Quyền cho phép công bố.
+- Quyền khai thác và sử dụng hình ảnh.
+- Quyền riêng tư và dữ liệu cá nhân.
+
+Một người đang giữ bản gốc không mặc nhiên có toàn bộ quyền tác giả.
+Một người sở hữu hiện vật không mặc nhiên có quyền cho phép mọi hình thức khai thác hình ảnh.
+Việc được phép chụp ảnh không mặc nhiên đồng nghĩa với được phép đăng tải.
+Việc được phép đăng tải không mặc nhiên đồng nghĩa với được phép tải bản độ phân giải cao hoặc sử dụng thương mại.
+
+Hệ thống phải thể hiện rõ những khác biệt này.
+
+4. Quyền công bố phải có căn cứ.
+
+Không được tự đánh dấu "Đã được phép" chỉ vì có tên người lưu giữ.
+
+Mỗi sự đồng ý phải có:
+- Người đồng ý.
+- Vai trò hoặc tư cách.
+- Tư liệu được áp dụng.
+- Ngày đồng ý.
+- Phạm vi được đồng ý.
+- Điều kiện đi kèm.
+- Thời hạn nếu có.
+- Bằng chứng hoặc tài liệu xác nhận.
+- Trạng thái hiệu lực.
+- Người ghi nhận.
+
+Nếu không có căn cứ, trạng thái phải là chưa xác minh.
+
+5. Quyền rút lại sự đồng ý.
+
+Khi người có quyền yêu cầu rút lại sự đồng ý:
+- Ghi nhận yêu cầu.
+- Tạm ẩn nội dung hoặc hình ảnh thuộc phạm vi yêu cầu.
+- Ngừng cho tải xuống.
+- Đánh dấu hồ sơ cần xử lý.
+- Lưu nhật ký thao tác.
+- Ghi nhận người xử lý và thời gian.
+- Không tự ý xóa bằng chứng cần lưu trữ.
+- Chỉ khôi phục hiển thị sau khi có căn cứ xử lý phù hợp.
+
+6. Bảo vệ thông tin riêng tư.
+
+Không công khai:
+- Số điện thoại cá nhân.
+- Địa chỉ nhà riêng.
+- Vị trí cất giữ chi tiết của hiện vật quý.
+- Nội dung riêng tư trong thư từ, nhật ký.
+- Thông tin cá nhân không được phép công bố.
+- Chữ ký hoặc giấy tờ nhạy cảm của người cho phép.
+
+7. Tính chất phi lợi nhuận.
+
+Đây là dự án xã hội phi lợi nhuận:
+- Không bán tư liệu.
+- Không môi giới hiện vật.
+- Không định giá hiện vật.
+- Không thu phí truy cập.
+- Không gắn quảng cáo.
+- Không xây dựng tính năng thương mại hóa dữ liệu.
+
+==================================================
+III. ĐỊNH HƯỚNG GIAO DIỆN
+==================================================
+
+BẮT BUỘC sử dụng phong cách thiết kế giống hệ thống giao diện website Nhã nhạc cung đình Huế đã được xây dựng trước đây.
+
+Tên phong cách:
+ROYAL HERITAGE – DIGITAL MUSEUM.
+
+Không sao chép nội dung Nhã nhạc cung đình Huế.
+Chỉ kế thừa ngôn ngữ thiết kế, cách tổ chức bố cục, tinh thần bảo tàng số, tính thẩm mỹ và trải nghiệm.
+
+1. Bảng màu
+
+- Đỏ son: #781F25
+- Vàng hoàng gia: #C9A45C
+- Đen trầm: #171513
+- Kem cổ: #F2E8D5
+- Nâu gỗ: #493326
+- Trắng ngà: #FFFDF8
+
+Quy tắc:
+- Nền chính sử dụng kem cổ và trắng ngà.
+- Đỏ son dùng cho CTA, điểm nhấn và điều hướng.
+- Vàng hoàng gia dùng cho đường viền, họa tiết, biểu tượng và chi tiết trang trí.
+- Đen trầm dùng cho chữ và các vùng nền tối.
+- Nâu gỗ dùng cho phần nội dung phụ, chân trang và chi tiết cổ điển.
+
+Không sử dụng giao diện SaaS hiện đại đại trà.
+Không dùng nền gradient sặc sỡ.
+Không dùng quá nhiều thẻ bo tròn dạng pill.
+Không biến giao diện thành dashboard CRUD Bootstrap thông thường.
+
+2. Phong cách thị giác
+
+- Cảm hứng kiến trúc cung đình triều Nguyễn.
+- Họa tiết rồng, phượng, hoa sen và hoa văn cổ.
+- Đường viền vàng tinh tế.
+- Họa tiết trang trí tiết chế.
+- Hình ảnh trưng bày theo phong cách bảo tàng.
+- Các mảng nội dung có chiều sâu.
+- Bố cục thoáng, sang trọng, có phân cấp rõ ràng.
+- Typography kết hợp font serif cổ điển và sans-serif hiện đại.
+- Tiêu đề có thể sử dụng Playfair Display hoặc Lora.
+- Nội dung sử dụng Be Vietnam Pro hoặc Plus Jakarta Sans.
+
+3. Thanh điều hướng
+
+Thiết kế thanh điều hướng ngang:
+
+- Trang chủ
+- Kho tư liệu
+- Quyền sở hữu
+- Bản gốc & bản sao
+- Khai thác hình ảnh
+- Cẩm nang pháp lý
+- Nguồn tư liệu
+- Giới thiệu
+
+Có ô tìm kiếm toàn hệ thống.
+
+Trên điện thoại:
+- Chuyển thành menu điều hướng gọn.
+- Không làm tràn màn hình.
+- Không che nội dung.
+
+4. Hero Banner
+
+Thiết kế hero lớn, có chiều sâu như một không gian triển lãm bảo tàng số.
+
+Tiêu đề:
+"DI SẢN SỐ – MINH BẠCH QUYỀN, GÌN GIỮ GIÁ TRỊ"
+
+Mô tả:
+"Nền tảng tra cứu và quản lý quyền đối với tư liệu di sản, giúp xác định nguồn gốc, phân biệt bản gốc – bản sao – bản số và sử dụng hình ảnh di sản đúng phạm vi cho phép."
+
+CTA:
+- Khám phá kho tư liệu.
+- Kiểm tra quyền sử dụng hình ảnh.
+
+Không sử dụng ảnh AI làm ảnh di sản.
+Nếu chưa có ảnh thật được phép sử dụng, dùng họa tiết kiến trúc hoặc nền đồ họa trừu tượng không giả dạng hiện vật.
+
+5. Các thành phần giao diện
+
+Phải có:
+- Header.
+- Mega menu hoặc menu điều hướng hợp lý.
+- Hero banner.
+- Các khu trưng bày nội dung.
+- Thẻ hồ sơ tư liệu.
+- Timeline.
+- Bộ lọc.
+- Bảng so sánh.
+- Khu vực giải thích quyền.
+- Khu vực nguồn tham khảo.
+- Footer.
+- Nút quay lại đầu trang.
+- Thanh tiến độ đọc nếu phù hợp.
+- Công cụ tăng/giảm cỡ chữ.
+- Hỗ trợ truy cập trên điện thoại.
+
+6. Trải nghiệm
+
+Giao diện phải có cảm giác như một bảo tàng số thực thụ:
+- Trang chủ có câu chuyện dẫn dắt.
+- Trang kho tư liệu giống phòng trưng bày.
+- Trang chi tiết giống hồ sơ lưu trữ bảo tàng.
+- Trang quyền sử dụng giống một công cụ tra cứu chuyên môn.
+- Trang kiến thức giống cẩm nang triển lãm.
+- Trang quản trị có giao diện riêng nhưng vẫn đồng bộ phong cách.
+
+==================================================
+IV. KIẾN TRÚC WEBSITE VÀ CÁC TRANG BẮT BUỘC
+==================================================
+
+Website phải có các trang liên kết thật với nhau.
+
+1. TRANG CHỦ
+
+Nội dung:
+- Hero giới thiệu dự án.
+- Giới thiệu vấn đề quyền sở hữu và khai thác hình ảnh di sản.
+- Thống kê dữ liệu thực tế.
+- Tư liệu mới được công bố.
+- Tư liệu có quyền sử dụng rõ ràng.
+- Tư liệu đang chờ xác minh.
+- Giải thích bản gốc, bản sao, bản số.
+- Hướng dẫn kiểm tra quyền sử dụng.
+- Quy trình xin phép.
+- Nguồn tham khảo.
+- Giới thiệu dự án phi lợi nhuận.
+
+Các số thống kê phải lấy từ cơ sở dữ liệu thực tế.
+Không tự điền số liệu giả.
+
+2. KHO TƯ LIỆU
+
+Đây là trang trung tâm.
+
+Chức năng:
+- Hiển thị danh sách tư liệu.
+- Tìm kiếm theo tên.
+- Tìm kiếm gần đúng.
+- Tìm kiếm theo từ khóa.
+- Lọc theo loại tư liệu.
+- Lọc theo nơi lưu giữ.
+- Lọc theo thời kỳ.
+- Lọc theo loại bản.
+- Lọc theo tình trạng bản gốc.
+- Lọc theo quyền công bố.
+- Lọc theo quyền tải xuống.
+- Lọc theo mức kiểm chứng.
+- Sắp xếp theo tên, thời gian và ngày cập nhật.
+- Phân trang.
+- Xem nhanh hồ sơ.
+
+Mỗi thẻ tư liệu phải hiển thị:
+- Mã định danh.
+- Nhan đề.
+- Loại tư liệu.
+- Nơi lưu giữ.
+- Loại bản đang hiển thị.
+- Tình trạng bản gốc.
+- Trạng thái quyền.
+- Mức kiểm chứng.
+- Ảnh chỉ khi được phép công bố.
+
+Không có ảnh được phép thì hiển thị vùng ảnh thay thế và thông báo rõ ràng.
+
+3. TRANG CHI TIẾT TƯ LIỆU
+
+Mỗi tư liệu có trang chi tiết riêng.
+
+Các phần:
+
+A. Thông tin nhận diện
+- Mã định danh.
+- Nhan đề.
+- Loại.
+- Người hoặc cơ quan tạo ra.
+- Niên đại.
+- Mô tả.
+- Ngôn ngữ, chữ viết.
+- Kích thước.
+- Chất liệu.
+- Đặc điểm nhận dạng.
+
+B. Nơi lưu giữ
+- Nơi lưu giữ hiện nay.
+- Địa danh tại thời điểm tư liệu.
+- Đơn vị hoặc người đang lưu giữ.
+- Số đăng ký.
+- Tình trạng bản gốc.
+- Mức độ công khai vị trí.
+
+Không công khai địa chỉ cất giữ nhạy cảm.
+
+C. Bản gốc – bản sao – bản số
+- Loại bản đang hiển thị.
+- Nguồn gốc của bản đang hiển thị.
+- Bản được tạo từ bản nào.
+- Ngày tạo bản sao hoặc bản số.
+- Người thực hiện số hóa.
+- Đơn vị số hóa.
+- Tệp gốc.
+- Tệp hiển thị.
+- Tình trạng bản gốc.
+- Lịch sử các phiên bản.
+
+D. Quyền
+- Chủ thể có quyền liên quan.
+- Người đang lưu giữ.
+- Người cho phép công bố.
+- Căn cứ cho phép.
+- Ngày đồng ý.
+- Phạm vi đồng ý.
+- Thời hạn.
+- Điều kiện.
+- Những hành vi bị cấm.
+- Trạng thái quyền.
+- Lịch sử thay đổi quyền.
+
+E. Hình ảnh
+Mỗi ảnh phải có:
+- Chú thích.
+- Nguồn.
+- Người chụp hoặc đơn vị cung cấp nếu biết.
+- Loại bản.
+- Độ phân giải.
+- Ngày tạo.
+- Quyền hiển thị.
+- Quyền tải xuống.
+
+Chỉ hiển thị ảnh khi đã có căn cứ cho phép.
+
+F. Nguồn và kiểm chứng
+- Danh sách nguồn.
+- Đường dẫn.
+- Tên cơ quan hoặc tác giả.
+- Ngày truy cập.
+- Thông tin được nguồn hỗ trợ.
+- Mức độ kiểm chứng.
+- Người xác minh.
+- Ngày xác minh.
+
+G. Lịch sử
+- Lịch sử chỉnh sửa.
+- Lịch sử thay đổi quyền.
+- Lịch sử công bố.
+- Lịch sử ẩn hoặc gỡ.
+- Lịch sử yêu cầu sử dụng.
+
+4. TRANG QUẢN LÝ QUYỀN SỞ HỮU
+
+Đây là chức năng cốt lõi của đề tài.
+
+Cho phép ghi nhận nhiều chủ thể liên quan đến một tư liệu.
+
+Các vai trò có thể có:
+- Chủ sở hữu vật mang tin.
+- Người đang lưu giữ.
+- Người tạo ra nội dung.
+- Tác giả.
+- Người chụp ảnh.
+- Người số hóa.
+- Người đại diện gia đình.
+- Người đại diện dòng họ.
+- Đơn vị quản lý.
+- Người được ủy quyền.
+- Người cho phép công bố.
+
+Không mặc định các vai trò trên thuộc về cùng một người.
+
+Mỗi chủ thể có:
+- Tên hoặc tên tổ chức.
+- Vai trò.
+- Căn cứ xác định vai trò.
+- Phạm vi quyền liên quan.
+- Tài liệu chứng minh.
+- Trạng thái xác minh.
+
+Không công khai dữ liệu cá nhân nhạy cảm.
+
+5. TRANG QUẢN LÝ SỰ ĐỒNG Ý VÀ GIẤY PHÉP
+
+Chức năng:
+- Tạo bản ghi sự đồng ý.
+- Gắn sự đồng ý với một hoặc nhiều tư liệu.
+- Chọn người đồng ý.
+- Chọn phạm vi được phép.
+- Chọn thời hạn.
+- Ghi điều kiện.
+- Đính kèm tài liệu bằng chứng.
+- Ghi nhận người tiếp nhận.
+- Ghi nhận ngày tiếp nhận.
+- Theo dõi trạng thái.
+- Ghi nhận việc thay đổi hoặc rút lại đồng ý.
+
+Các trạng thái:
+- Chưa yêu cầu.
+- Đã gửi yêu cầu.
+- Đang chờ xác nhận.
+- Đã xác nhận.
+- Chỉ cho phép xem.
+- Cho phép hiển thị ảnh.
+- Cho phép tải bản giới hạn.
+- Cho phép tải bản độ phân giải cao.
+- Cho phép sử dụng trong học tập.
+- Cho phép sử dụng trong nghiên cứu.
+- Không cho phép sử dụng.
+- Hết hiệu lực.
+- Đã rút lại.
+- Chưa đủ bằng chứng.
+
+Không tự động suy diễn quyền từ một trạng thái khác.
+
+6. TRANG PHÂN BIỆT BẢN GỐC – BẢN SAO – BẢN SỐ
+
+Thiết kế một trang kiến thức trực quan.
+
+Giải thích:
+- Bản gốc là gì.
+- Bản sao là gì.
+- Bản số là gì.
+- Bản số của bản gốc.
+- Bản số của bản sao.
+- Bản phục dựng.
+- Bản chụp lại từ sách hoặc tài liệu đã xuất bản.
+
+Có bảng so sánh:
+
+Bản gốc:
+- Vật mang tin ban đầu.
+- Có nơi lưu giữ.
+- Có tình trạng bảo quản.
+- Có thông tin nhận dạng.
+
+Bản sao:
+- Được tạo lại từ bản gốc.
+- Phải ghi rõ nguồn tạo.
+- Không được trình bày như bản gốc.
+
+Bản số:
+- Tệp ảnh hoặc tệp quét.
+- Phải ghi rõ được tạo từ bản nào.
+- Có người thực hiện số hóa.
+- Có ngày tạo.
+- Có thông tin tệp.
+- Có quyền sử dụng riêng.
+
+Mỗi hồ sơ tư liệu phải có chức năng ghi nhận quan hệ giữa các phiên bản.
+
+7. TRANG KIỂM TRA QUYỀN SỬ DỤNG HÌNH ẢNH
+
+Đây là chức năng quan trọng nhất của website.
+
+Xây dựng một công cụ chẩn đoán theo từng bước.
+
+Người dùng chọn:
+- Loại tư liệu.
+- Nơi lưu giữ.
+- Bản đang muốn sử dụng.
+- Mục đích sử dụng.
+- Hình thức sử dụng.
+- Có muốn tải ảnh không.
+- Có muốn chỉnh sửa không.
+- Có muốn in ấn không.
+- Có mục đích thương mại không.
+- Đã có sự đồng ý chưa.
+- Có bằng chứng đồng ý không.
+- Phạm vi đồng ý có bao gồm mục đích này không.
+
+Sau khi nhập, hệ thống phải đối chiếu với dữ liệu quyền của tư liệu.
+
+Kết quả chỉ được thuộc các trạng thái:
+
+A. ĐƯỢC PHÉP THEO PHẠM VI ĐÃ XÁC NHẬN
+Có bằng chứng hợp lệ và mục đích sử dụng phù hợp với phạm vi cho phép.
+
+B. CẦN XIN PHÉP
+Chưa có sự đồng ý hoặc chưa có căn cứ đủ để sử dụng.
+
+C. CHỈ ĐƯỢC XEM
+Được phép xem nhưng không được tải xuống hoặc tái sử dụng.
+
+D. CHƯA ĐỦ BẰNG CHỨNG
+Không đủ dữ liệu để xác định quyền.
+
+E. KHÔNG ĐƯỢC PHÉP
+Có căn cứ thể hiện hành vi sử dụng không được chấp thuận.
+
+Mỗi kết quả phải giải thích:
+- Vì sao có kết quả này.
+- Dữ liệu nào được dùng để đối chiếu.
+- Bằng chứng nào đang có.
+- Phạm vi nào được phép.
+- Phạm vi nào chưa được phép.
+- Người dùng cần làm gì tiếp theo.
+- Nguồn hoặc điều khoản tham chiếu.
+
+Không được kết luận pháp lý tuyệt đối khi dữ liệu chưa đủ.
+Đây là công cụ hỗ trợ tra cứu và quản lý quyền, không thay thế tư vấn pháp lý.
+
+8. TRANG HƯỚNG DẪN XIN PHÉP SỬ DỤNG
+
+Có:
+- Hướng dẫn xin phép gia đình.
+- Hướng dẫn xin phép dòng họ.
+- Hướng dẫn xin phép ban quản lý di tích.
+- Hướng dẫn xin phép bảo tàng.
+- Hướng dẫn sử dụng tư liệu lưu trữ đã công bố.
+- Hướng dẫn ghi nguồn.
+- Hướng dẫn ghi chú thích ảnh.
+- Hướng dẫn xin phép tải ảnh độ phân giải cao.
+- Hướng dẫn xử lý khi người cho phép rút lại đồng ý.
+
+Có mẫu yêu cầu sử dụng hình ảnh:
+- Họ tên người yêu cầu.
+- Đơn vị.
+- Thông tin liên hệ phù hợp.
+- Mã tư liệu.
+- Mục đích sử dụng.
+- Phạm vi sử dụng.
+- Hình thức sử dụng.
+- Thời hạn.
+- Tệp hoặc thông tin bổ sung.
+
+Không yêu cầu đăng nhập đối với người gửi yêu cầu công khai.
+Không hiển thị thông tin riêng tư của người gửi ra ngoài.
+
+9. TRANG NGUỒN TƯ LIỆU
+
+Tạo thư viện nguồn có khả năng tra cứu.
+
+Mỗi nguồn gồm:
+- Tên nguồn.
+- Cơ quan hoặc tác giả.
+- Loại nguồn.
+- Đường dẫn.
+- Ngày công bố nếu có.
+- Ngày truy cập.
+- Nội dung được sử dụng.
+- Tư liệu liên quan.
+- Trạng thái kiểm tra đường dẫn.
+
+Phân loại:
+- Nguồn chính thống.
+- Nguồn lưu trữ.
+- Nguồn bảo tàng.
+- Nguồn học thuật.
+- Nguồn xuất bản.
+- Nguồn do người đang lưu giữ cung cấp.
+
+Bắt buộc tối thiểu 7 nguồn có thể truy cập, trong đó ít nhất 3 nguồn chính thống.
+
+Mỗi bản ghi tư liệu phải có tối thiểu 2 nguồn được ghi rõ.
+
+Không coi nội dung AI tạo ra là nguồn tham khảo.
+
+10. TRANG CẨM NANG PHÁP LÝ
+
+Tổ chức kiến thức theo từng chủ đề:
+- Quyền sở hữu tư liệu.
+- Quyền của chủ sở hữu.
+- Bản sao di sản tư liệu.
+- Sử dụng và khai thác thông tin, hình ảnh di sản.
+- Quyền tác giả.
+- Quyền liên quan.
+- Dữ liệu cá nhân.
+- Quyền riêng tư.
+- Quyền công bố.
+- Quyền sử dụng hình ảnh tại bảo tàng và di tích.
+
+Các văn bản được kế hoạch thực tập nêu:
+- Luật Di sản văn hóa số 45/2024/QH15, hiệu lực 01/07/2025.
+- Chương IV, Điều 53 đến Điều 63 về di sản tư liệu.
+- Điều 60 về quyền chủ sở hữu theo nội dung kế hoạch.
+- Điều 63 về bản sao theo nội dung kế hoạch.
+- Chương V, Điều 64 đến Điều 77 về bảo tàng.
+- Điều 85 về cơ sở dữ liệu quốc gia và chuyển đổi số.
+- Điều 86 về phát huy giá trị trên môi trường điện tử.
+- Điều 88 về sử dụng, khai thác thông tin và hình ảnh di sản.
+- Thông tư 05/2025/TT-BVHTTDL.
+- Nghị định 308/2025/NĐ-CP.
+- Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 theo danh mục trong kế hoạch.
+- Chương trình Ký ức thế giới của UNESCO.
+- Chuẩn Dublin Core.
+
+Các văn bản và số điều phải được đối chiếu với nguồn chính thức trước khi xuất bản nội dung pháp lý.
+
+Không tự sáng tác nội dung điều luật.
+Không tự trích dẫn điều luật khi chưa kiểm tra.
+Nếu chưa xác minh được thì hiển thị "ĐANG CHỜ ĐỐI CHIẾU VĂN BẢN GỐC".
+
+Không đưa ra kết luận pháp lý thay cho cơ quan có thẩm quyền.
+
+11. TRANG GIỚI THIỆU
+
+Phải có:
+- Mục đích dự án.
+- Lý do thực hiện.
+- Phạm vi.
+- Đối tượng sử dụng.
+- Các chức năng chính.
+- Phương pháp thu thập dữ liệu.
+- Phương pháp xác minh.
+- Giới hạn của sản phẩm.
+- Những nội dung chưa thực hiện được.
+- Thông tin sinh viên.
+
+Thông tin:
+Trần Thanh Bình – PH61165 – Group 1 – J02.
+Chương trình Thực tập sinh Đợt 15, FPT Polytechnic và IMTA TECH.
+Dự án xã hội phi lợi nhuận.
+
+12. TRANG QUẢN TRỊ
+
+Khu vực quản trị dành cho người có quyền.
+
+Chức năng:
+- Dashboard.
+- Quản lý tư liệu.
+- Thêm tư liệu.
+- Sửa tư liệu.
+- Ẩn tư liệu.
+- Quản lý ảnh.
+- Quản lý bản gốc, bản sao và bản số.
+- Quản lý chủ thể quyền.
+- Quản lý sự đồng ý.
+- Quản lý bằng chứng.
+- Quản lý nguồn.
+- Quản lý trạng thái xác minh.
+- Duyệt yêu cầu sử dụng.
+- Xử lý yêu cầu gỡ bỏ.
+- Quản lý người dùng quản trị.
+- Nhật ký hoạt động.
+- Xuất dữ liệu.
+- Sao lưu dữ liệu.
+
+Có phân quyền:
+- Quản trị viên.
+- Người biên tập.
+- Người xác minh.
+- Người xử lý yêu cầu.
+
+Người biên tập không được tự xác nhận quyền nếu không có thẩm quyền.
+Mọi thay đổi quan trọng phải có nhật ký.
+
+==================================================
+V. BỘ TRƯỜNG DỮ LIỆU BẮT BUỘC
+==================================================
+
+Mỗi bản ghi phải sử dụng đủ 15 trường lõi Dublin Core:
+
+1. Title – Nhan đề.
+2. Creator – Người hoặc cơ quan tạo ra.
+3. Subject – Chủ đề.
+4. Description – Mô tả.
+5. Publisher – Nơi công bố bản số.
+6. Contributor – Người đóng góp.
+7. Date – Ngày tháng.
+8. Type – Loại.
+9. Format – Định dạng.
+10. Identifier – Mã định danh.
+11. Source – Nguồn.
+12. Language – Ngôn ngữ.
+13. Relation – Quan hệ.
+14. Coverage – Phạm vi không gian và thời gian.
+15. Rights – Quyền.
+
+BẮT BUỘC thêm các trường:
+
+16. Nơi lưu giữ hiện nay.
+17. Nơi lưu giữ tại thời điểm tư liệu.
+18. Loại bản đang hiển thị.
+19. Tình trạng bản gốc.
+20. Số đăng ký hoặc số tham khảo.
+21. Người cho phép công bố.
+22. Vai trò của người cho phép.
+23. Ngày đồng ý.
+24. Phạm vi được phép.
+25. Thời hạn được phép.
+26. Điều kiện sử dụng.
+27. Phần không công bố.
+28. Mức kiểm chứng.
+29. Người kiểm chứng.
+30. Ngày kiểm chứng.
+31. Người số hóa.
+32. Ngày số hóa.
+33. Thông tin tệp gốc.
+34. Thông tin tệp hiển thị.
+35. Quan hệ giữa bản gốc và bản số.
+36. Lịch sử quyền.
+37. Điểm chưa rõ.
+38. Danh sách nguồn tư liệu.
+
+Loại bản phải sử dụng các giá trị:
+- Bản gốc.
+- Bản sao.
+- Bản số của bản gốc.
+- Bản số của bản sao.
+
+Tình trạng bản gốc:
+- Tốt.
+- Hư hại nhẹ.
+- Hư hại nặng.
+- Không rõ.
+
+Mức kiểm chứng:
+- Đã kiểm.
+- Chưa kiểm.
+- Chưa đọc được.
+
+Mỗi trường chưa có dữ liệu phải ghi rõ chưa xác định, không để dữ liệu giả.
+
+==================================================
+VI. MÔ HÌNH DỮ LIỆU VÀ CƠ SỞ DỮ LIỆU
+==================================================
+
+Thiết kế cơ sở dữ liệu có quan hệ rõ ràng.
+
+Các thực thể tối thiểu:
+
+1. users
+2. roles
+3. heritage_records
+4. record_versions
+5. record_files
+6. record_holders
+7. rights_holders
+8. rights_evidence
+9. permissions
+10. permission_scopes
+11. source_references
+12. record_sources
+13. verification_logs
+14. usage_requests
+15. takedown_requests
+16. audit_logs
+17. consent_records
+18. record_relationships
+
+Yêu cầu:
+- Có khóa chính.
+- Có khóa ngoại.
+- Có ràng buộc dữ liệu.
+- Có thời gian tạo và cập nhật.
+- Có trạng thái.
+- Có nhật ký.
+- Không lưu thông tin nhạy cảm ở nơi công khai.
+- Không để người dùng tự nâng quyền.
+- Không để dữ liệu quyền bị ghi đè mà mất lịch sử.
+
+Thiết kế dữ liệu có thể mở rộng.
+Không nhồi toàn bộ dữ liệu vào một mảng JavaScript cố định.
+Không dùng localStorage làm cơ sở dữ liệu chính cho ứng dụng nhiều người dùng.
+
+==================================================
+VII. YÊU CẦU KỸ THUẬT
+==================================================
+
+Trước khi viết code:
+
+1. Kiểm tra toàn bộ project hiện có.
+2. Xác định framework.
+3. Xác định cấu trúc thư mục.
+4. Xác định các thành phần đã hoạt động.
+5. Xác định cơ sở dữ liệu.
+6. Xác định dịch vụ lưu trữ.
+7. Xác định cấu hình môi trường.
+8. Xác định các chức năng đã có.
+9. Lập kế hoạch thay đổi.
+10. Giữ lại những chức năng đang hoạt động.
+
+Nếu project đã có nền tảng React/Vite/TypeScript/Firebase/Node:
+- Ưu tiên tiếp tục sử dụng.
+- Không tạo project mới không cần thiết.
+- Không xóa dữ liệu.
+- Không phá vỡ cấu hình đang chạy.
+- Không thay thế toàn bộ source chỉ vì muốn đổi giao diện.
+
+Nếu project chưa có backend hoặc database:
+- Xây dựng kiến trúc phù hợp.
+- Ưu tiên Firebase/Firestore và Firebase Storage.
+- Có backend Node.js/Express hoặc Cloud Functions để xử lý nghiệp vụ bảo mật.
+- Dùng Firebase Authentication cho khu vực quản trị.
+
+Yêu cầu bắt buộc:
+- Frontend React + TypeScript.
+- Giao diện responsive.
+- Dữ liệu có cấu trúc.
+- Lưu trữ dữ liệu thật.
+- Backend xử lý chức năng cần bảo mật.
+- Có xác thực quản trị.
+- Có phân quyền.
+- Có kiểm soát truy cập dữ liệu.
+- Có kiểm tra dữ liệu đầu vào.
+- Có thông báo lỗi.
+- Có loading state.
+- Có empty state.
+- Có trạng thái thành công và thất bại thực tế.
+
+Không để API key trong mã nguồn frontend.
+Không để lộ Gemini API key.
+Không đặt quyền admin trong dữ liệu client có thể tự sửa.
+Không cho phép người dùng công khai sửa dữ liệu quyền.
+
+==================================================
+VIII. TÍCH HỢP GEMINI
+==================================================
+
+Bắt buộc có ít nhất một chức năng sử dụng Gemini thực sự.
+
+Tạo chức năng:
+TRỢ LÝ TRA CỨU QUYỀN VÀ TƯ LIỆU DI SẢN.
+
+Gemini phải:
+- Chỉ sử dụng dữ liệu đã được nạp vào hệ thống.
+- Trả lời dựa trên hồ sơ tư liệu.
+- Trả lời dựa trên nguồn đã lưu.
+- Phân biệt thông tin đã xác minh và chưa xác minh.
+- Không tự kết luận quyền sở hữu.
+- Không tự tạo giấy phép.
+- Không tự khẳng định đã được cho phép.
+- Không tự suy đoán người lưu giữ.
+- Không tự tạo nguồn.
+
+Mỗi câu trả lời phải có:
+- Nội dung trả lời.
+- Mã tư liệu liên quan.
+- Nơi lưu giữ.
+- Loại bản.
+- Trạng thái quyền.
+- Nguồn tham khảo.
+- Phần thông tin còn thiếu nếu có.
+
+Nếu dữ liệu không đủ, bắt buộc trả lời:
+
+"Dữ liệu hiện có chưa đủ căn cứ để đưa ra kết luận. Vui lòng kiểm tra hồ sơ tư liệu, bằng chứng về quyền và liên hệ chủ thể có liên quan."
+
+Nếu người dùng hỏi ngoài dữ liệu:
+"Hiện hệ thống chưa có tư liệu xác minh cho nội dung này."
+
+Không cho Gemini tự động sửa dữ liệu gốc.
+Không cho Gemini tự động phê duyệt quyền.
+Không cho Gemini tự động công bố ảnh.
+
+Có thể dùng Gemini để:
+- Tóm tắt hồ sơ.
+- Tìm kiếm ngữ nghĩa.
+- Phân tích sự thiếu hụt thông tin.
+- Gợi ý trường dữ liệu còn thiếu.
+- Giải thích sự khác nhau giữa bản gốc, bản sao, bản số.
+- Đề xuất câu hỏi cần hỏi người lưu giữ.
+- Hỗ trợ người biên tập rà soát hồ sơ.
+
+Mọi nội dung do Gemini đề xuất phải được gắn nhãn "NỘI DUNG AI ĐỀ XUẤT – CHƯA XÁC MINH" nếu chưa được người có trách nhiệm kiểm tra.
+
+==================================================
+IX. QUẢN LÝ ẢNH VÀ TỆP
+==================================================
+
+Phải phân biệt:
+
+1. Tệp gốc:
+- Độ phân giải cao.
+- Giữ nguyên.
+- Không chỉnh sửa.
+- Lưu trữ riêng.
+- Không tự động công khai.
+
+2. Tệp hiển thị:
+- Bản giảm kích thước.
+- Dùng trên website.
+- Có chú thích.
+- Có nguồn.
+- Có kiểm tra quyền.
+
+3. Tệp bản sao:
+- Ghi nguồn tạo.
+- Ghi người thực hiện.
+- Ghi ngày tạo.
+- Ghi quan hệ với bản gốc.
+
+4. Tệp bằng chứng:
+- Lưu riêng.
+- Chỉ người có quyền được xem.
+- Không hiển thị công khai.
+
+Mỗi ảnh hiển thị phải có chú thích và nguồn ngay bên dưới.
+
+Mỗi ảnh phải được kiểm tra quyền riêng.
+Không được mặc định quyền của cả bộ tư liệu áp dụng cho mọi ảnh.
+
+Nếu thiếu người cho phép hoặc thiếu căn cứ:
+- Ẩn ảnh.
+- Không cho tải xuống.
+- Hiển thị thông báo chờ xác minh quyền.
+
+Có chức năng:
+- Xem ảnh.
+- Phóng to ảnh khi được phép.
+- Chuyển giữa ảnh toàn trang và ảnh cận cảnh.
+- Hiển thị chú thích.
+- Hiển thị nguồn.
+- Kiểm soát tải xuống.
+- Kiểm tra quyền trước khi tải.
+
+Ảnh hiển thị trên website nên được tối ưu dưới 500 KB mỗi ảnh theo kế hoạch thực tập.
+Tệp gốc độ phân giải cao được lưu riêng.
+
+==================================================
+X. XUẤT DỮ LIỆU VÀ SAO LƯU
+==================================================
+
+Bắt buộc có chức năng xuất dữ liệu.
+
+Hỗ trợ:
+- JSON.
+- CSV.
+
+Tên tệp phải có ngày xuất.
+
+Dữ liệu xuất gồm:
+- Mã định danh.
+- 15 trường Dublin Core.
+- Các trường bổ sung.
+- Loại bản.
+- Tình trạng bản gốc.
+- Người cho phép.
+- Phạm vi được phép.
+- Trạng thái quyền.
+- Nguồn.
+- Mức kiểm chứng.
+
+Không xuất công khai dữ liệu nhạy cảm hoặc tài liệu bằng chứng riêng tư.
+
+Phải có:
+- Thông báo khi xuất thành công.
+- Thông báo khi xuất thất bại.
+- Kiểm tra tệp xuất mở được.
+- Bảo toàn cấu trúc dữ liệu.
+- Sao lưu dữ liệu.
+
+==================================================
+XI. DỮ LIỆU THỰC TẾ VÀ 15 BẢN GHI
+==================================================
+
+YÊU CẦU NGHIỆM THU:
+Tối thiểu 15 bản ghi thật.
+
+Không được giải quyết yêu cầu này bằng cách tạo 15 bản ghi giả.
+
+Trước tiên, tạo hệ thống nhập dữ liệu với:
+- Mẫu JSON.
+- Mẫu CSV.
+- Form nhập thủ công.
+- Kiểm tra dữ liệu thiếu.
+- Kiểm tra mã trùng.
+- Kiểm tra nguồn.
+- Kiểm tra quyền.
+- Kiểm tra loại bản.
+- Kiểm tra tình trạng bản gốc.
+
+Tạo sẵn cấu trúc dữ liệu rỗng để người thực hiện nạp dữ liệu thật.
+
+Nếu chưa có đủ 15 bản ghi thật:
+- Không hiển thị số liệu 15/15.
+- Hiển thị số bản ghi thực tế.
+- Hiển thị số bản ghi còn thiếu.
+- Hiển thị tiến độ hoàn thành.
+- Không tạo dữ liệu giả để lấp chỗ trống.
+
+Mỗi bản ghi phải có tối thiểu hai nguồn được ghi rõ.
+
+Mỗi bản ghi phải có:
+- Nơi lưu giữ hiện nay.
+- Loại bản đang hiển thị.
+- Tình trạng bản gốc.
+- Người cho phép công bố.
+- Phạm vi được phép.
+- Nguồn.
+- Mức kiểm chứng.
+
+Nếu chưa có người cho phép công bố:
+- Không hiển thị ảnh.
+- Không cho tải xuống.
+- Đánh dấu hồ sơ chưa đủ căn cứ.
+
+==================================================
+XII. NGUỒN CHÍNH THỐNG
+==================================================
+
+Tạo danh mục nguồn tham khảo ban đầu để người biên tập kiểm tra:
+
+- Cục Di sản văn hóa: dsvh.gov.vn
+- Cổng thông tin Bộ Văn hóa, Thể thao và Du lịch: bvhttdl.gov.vn
+- Công báo Chính phủ: congbao.chinhphu.vn
+- Cơ sở dữ liệu văn bản Chính phủ: vanban.chinhphu.vn
+- UNESCO: unesco.org
+- Dublin Core Metadata Initiative: dublincore.org
+- Cục Văn thư và Lưu trữ nhà nước.
+- Các Trung tâm Lưu trữ quốc gia.
+- Viện Nghiên cứu Hán Nôm.
+- Thư viện Quốc gia Việt Nam.
+- Bảo tàng Lịch sử quốc gia.
+- Bảo tàng địa phương.
+- Trung tâm Bảo tồn Di tích Cố đô Huế khi có nội dung liên quan.
+
+Đây là danh mục đầu mối tra cứu, không được coi mọi đường dẫn là đã kiểm chứng.
+
+Chỉ đánh dấu nguồn hoạt động sau khi kiểm tra được.
+Không tự tạo URL con.
+Không tự bịa tên tài liệu hoặc mã hồ sơ.
+
+Yêu cầu trang Nguồn:
+- Tối thiểu 7 nguồn có thể truy cập.
+- Ít nhất 3 nguồn chính thống.
+- Mỗi nguồn phải có thông tin cụ thể.
+- Mỗi bản ghi phải liên kết với nguồn tương ứng.
+- Không sử dụng nội dung AI tạo làm nguồn.
+
+==================================================
+XIII. TRẢI NGHIỆM NGƯỜI DÙNG VÀ QUYỀN TRUY CẬP
+==================================================
+
+Khách truy cập:
+- Không cần đăng nhập.
+- Được xem trang chủ.
+- Được tra cứu tư liệu công khai.
+- Được xem hồ sơ đã được phép công bố.
+- Được xem nguồn.
+- Được xem trạng thái xác minh.
+- Được kiểm tra phạm vi sử dụng.
+- Được xem hướng dẫn xin phép.
+- Được gửi yêu cầu sử dụng hoặc yêu cầu gỡ bỏ.
+
+Không yêu cầu đăng nhập để truy cập nội dung công khai.
+
+Chỉ khu vực quản trị mới yêu cầu đăng nhập.
+
+Người dùng công khai không được:
+- Sửa hồ sơ.
+- Sửa quyền.
+- Tự phê duyệt.
+- Xem bằng chứng riêng tư.
+- Xem tệp gốc bị hạn chế.
+- Xem thông tin cá nhân không công khai.
+
+==================================================
+XIV. YÊU CẦU RESPONSIVE VÀ HIỆU NĂNG
+==================================================
+
+Phải kiểm tra ở:
+- Desktop 1440px.
+- Laptop 1024px.
+- Tablet 768px.
+- Mobile 390px.
+- Mobile 360px.
+
+Yêu cầu:
+- Không tràn ngang.
+- Không vỡ bố cục.
+- Menu hoạt động.
+- Bảng có cách hiển thị phù hợp trên mobile.
+- Ảnh không vượt khung.
+- Form sử dụng dễ dàng.
+- Nút bấm có vùng tương tác đủ lớn.
+- Font tiếng Việt hiển thị đúng.
+- Không có lỗi dấu.
+- Tải dữ liệu hợp lý.
+- Có trạng thái tải.
+- Có trạng thái rỗng.
+- Có trạng thái lỗi.
+
+==================================================
+XV. TIÊU CHÍ NGHIỆM THU BẮT BUỘC
+==================================================
+
+Đối chiếu từng yêu cầu sau:
+
+1. Ứng dụng web chạy trên trình duyệt và có đường dẫn công khai.
+2. Trang chủ hoặc Giới thiệu nêu rõ khối tư liệu, nơi lưu giữ và người cho phép.
+3. Có ít nhất bốn màn hình hoặc chức năng liên kết được.
+4. Có tối thiểu 15 bản ghi thật.
+5. Mỗi bản ghi đủ 15 trường Dublin Core và trường bổ sung.
+6. Mỗi bản ghi ghi rõ loại bản và tình trạng bản gốc.
+7. Mỗi ảnh có chú thích và nguồn ngay dưới ảnh.
+8. Có ít nhất một chức năng Gemini hoạt động thật.
+9. Có trang Nguồn với ít nhất 7 nguồn, tối thiểu 3 nguồn chính thống.
+10. Có mục Ghi nhận người cho phép công bố và phạm vi được phép.
+11. Có chức năng xuất dữ liệu.
+12. Có trang Giới thiệu ghi đúng thông tin sinh viên, mã sinh viên, nhóm, phạm vi và giới hạn sản phẩm.
+13. Toàn bộ giao diện bằng tiếng Việt có dấu.
+14. Hiển thị tốt trên điện thoại.
+15. Không lộ API key phía trình duyệt.
+
+Các yêu cầu kiểm tra bổ sung:
+16. Không có ảnh AI giả dạng tư liệu thật.
+17. Không có dữ liệu quyền tự tạo.
+18. Không có ảnh chưa được phép công bố.
+19. Không công bố nội dung người lưu giữ đã yêu cầu giữ kín.
+20. Không trình bày bản sao hoặc bản phục dựng như bản gốc.
+21. Không gán danh hiệu di sản hoặc bảo vật khi chưa có quyết định.
+22. Có mức kiểm chứng cho thông tin chưa chắc chắn.
+23. Đường dẫn công khai truy cập được ở cửa sổ ẩn danh.
+24. Đã thử trên một thiết bị khác.
+25. Đã xuất dữ liệu và mở thử tệp JSON, CSV.
+
+==================================================
+XVI. THANG ĐIỂM CẦN TỐI ƯU
+==================================================
+
+Phải tối ưu sản phẩm theo thang điểm 100 của kế hoạch:
+
+1. Chất lượng số hóa và mô tả: 25 điểm.
+2. Độ chính xác và chất lượng nguồn: 15 điểm.
+3. Tôn trọng quyền và an toàn bản gốc: 15 điểm.
+4. Mức độ hoàn thiện sản phẩm: 15 điểm.
+5. Giá trị tư liệu mới tạo ra: 15 điểm.
+6. Giao diện và trải nghiệm: 5 điểm.
+7. Kỷ luật tiến độ: 5 điểm.
+8. Trình bày và phản biện: 5 điểm.
+
+Không được chỉ tập trung vào giao diện để bỏ qua dữ liệu, quyền và nguồn.
+
+==================================================
+XVII. QUY TRÌNH THỰC HIỆN
+==================================================
+
+Thực hiện theo từng giai đoạn:
+
+GIAI ĐOẠN 1 – KIỂM TRA PROJECT
+- Đọc toàn bộ cấu trúc project.
+- Kiểm tra file.
+- Kiểm tra cấu hình.
+- Kiểm tra database.
+- Kiểm tra các chức năng có sẵn.
+- Báo cáo vấn đề trước khi sửa.
+- Không xóa dữ liệu.
+
+GIAI ĐOẠN 2 – THIẾT KẾ HỆ THỐNG
+- Chốt kiến trúc.
+- Thiết kế database.
+- Thiết kế quyền.
+- Thiết kế luồng nghiệp vụ.
+- Thiết kế route.
+- Thiết kế component.
+- Thiết kế hệ thống giao diện Royal Heritage.
+
+GIAI ĐOẠN 3 – XÂY DỰNG GIAO DIỆN
+- Trang chủ.
+- Kho tư liệu.
+- Trang chi tiết.
+- Trang quyền sở hữu.
+- Trang bản gốc/bản sao/bản số.
+- Công cụ kiểm tra quyền.
+- Trang nguồn.
+- Cẩm nang pháp lý.
+- Giới thiệu.
+- Quản trị.
+
+GIAI ĐOẠN 4 – XÂY DỰNG BACKEND VÀ DỮ LIỆU
+- Cơ sở dữ liệu.
+- API.
+- CRUD.
+- Quan hệ dữ liệu.
+- Xác thực.
+- Phân quyền.
+- Lưu trữ tệp.
+- Nhật ký.
+- Bảo vệ dữ liệu.
+
+GIAI ĐOẠN 5 – NGHIỆP VỤ QUYỀN
+- Chủ thể quyền.
+- Người lưu giữ.
+- Người cho phép.
+- Bằng chứng.
+- Phạm vi.
+- Thời hạn.
+- Rút lại đồng ý.
+- Kiểm tra quyền.
+- Ẩn ảnh.
+- Xử lý yêu cầu sử dụng.
+- Xử lý yêu cầu gỡ bỏ.
+
+GIAI ĐOẠN 6 – GEMINI
+- Tích hợp backend.
+- Truy xuất dữ liệu có căn cứ.
+- Trả lời có mã tư liệu và nguồn.
+- Kiểm soát nội dung chưa xác minh.
+- Không để lộ API key.
+
+GIAI ĐOẠN 7 – HOÀN THIỆN
+- Xuất JSON.
+- Xuất CSV.
+- Kiểm tra nguồn.
+- Kiểm tra dữ liệu.
+- Kiểm tra quyền.
+- Kiểm tra giao diện.
+- Kiểm tra responsive.
+- Kiểm tra bảo mật.
+
+GIAI ĐOẠN 8 – NGHIỆM THU
+- Kiểm tra từng tiêu chí.
+- Chụp ảnh màn hình.
+- Kiểm tra link công khai.
+- Thử bằng cửa sổ ẩn danh.
+- Kiểm tra file xuất.
+- Lập báo cáo PASS/FAIL/BLOCKED/NOT VERIFIED.
+- Không đánh dấu PASS nếu chưa có bằng chứng kiểm tra.
+
+==================================================
+XVIII. CƠ CHẾ TỰ KIỂM TRA VÀ CHỐNG BỎ SÓT
+==================================================
+
+Sau khi hoàn thiện, tạo một trang hoặc báo cáo kiểm tra riêng.
+
+Mỗi yêu cầu phải có:
+- Mã tiêu chí.
+- Nội dung yêu cầu.
+- Trạng thái.
+- Bằng chứng.
+- Đường dẫn màn hình.
+- Kết quả kiểm thử.
+- Lỗi còn tồn tại.
+- Hướng khắc phục.
+
+Trạng thái:
+- PASS: Đã kiểm tra và có bằng chứng.
+- FAIL: Đã kiểm tra nhưng không đạt.
+- BLOCKED: Chưa thể kiểm tra vì thiếu điều kiện.
+- NOT VERIFIED: Chưa có bằng chứng xác nhận.
+
+Không được đánh dấu tất cả là PASS để làm đẹp báo cáo.
+
+Khi phát hiện lỗi:
+1. Xác định nguyên nhân.
+2. Sửa đúng vị trí.
+3. Kiểm tra lại chức năng.
+4. Kiểm tra chức năng liên quan.
+5. Lưu kết quả.
+6. Chỉ chuyển sang PASS khi thực sự đạt.
+
+==================================================
+XIX. YÊU CẦU ĐẦU RA CUỐI CÙNG
+==================================================
+
+Bạn phải hoàn thành một sản phẩm có thể sử dụng thực tế, không phải bản demo.
+
+Kết quả cuối cùng cần có:
+
+1. Website hoàn chỉnh.
+2. Giao diện Royal Heritage đồng bộ.
+3. Các trang hoạt động.
+4. Cơ sở dữ liệu.
+5. Chức năng quản lý tư liệu.
+6. Chức năng quản lý quyền.
+7. Chức năng phân biệt bản gốc, bản sao, bản số.
+8. Công cụ kiểm tra quyền sử dụng.
+9. Quản lý bằng chứng và sự đồng ý.
+10. Quản lý nguồn.
+11. Gemini hoạt động qua backend.
+12. Xuất JSON và CSV.
+13. Phân quyền quản trị.
+14. Nhật ký thao tác.
+15. Bảo vệ dữ liệu và API key.
+16. Responsive.
+17. Có thể triển khai công khai.
+18. Có báo cáo tự kiểm tra toàn bộ tiêu chí.
+
+YÊU CẦU QUAN TRỌNG NHẤT:
+
+Trước khi kết thúc, hãy tự rà soát toàn bộ prompt này từ đầu đến cuối.
+
+Không được bỏ sót yêu cầu chỉ vì nó khó triển khai.
+Không được thay thế chức năng thật bằng giao diện minh họa.
+Không được tự tạo dữ liệu giả để hoàn thành chỉ tiêu.
+Không được tự nhận một tính năng đã hoàn thành khi chưa kiểm thử.
+
+Nếu có yêu cầu chưa thể hoàn thành vì thiếu dữ liệu thực tế, quyền truy cập, tài liệu cho phép hoặc cấu hình dịch vụ:
+- Phải ghi rõ.
+- Phải tạo vị trí nhập dữ liệu.
+- Phải hướng dẫn cách hoàn thiện.
+- Phải đánh dấu BLOCKED hoặc NOT VERIFIED.
+- Không được tự bịa để che lấp.
+
+Hãy bắt đầu bằng việc kiểm tra project hiện có, sau đó triển khai lần lượt từng giai đoạn. Ưu tiên hoàn thiện nghiệp vụ và tính chính xác trước, nhưng phải giữ nguyên phong cách thiết kế Royal Heritage – Digital Museum trong toàn bộ website.

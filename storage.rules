@@ -1,0 +1,41 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Global safety net
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    // Strictly locked original high-resolution masters and private rights evidence
+    match /original_master/{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    match /rights_evidence/{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    // Controlled public access & preservation copies (read-only)
+    match /access_copy/{allPaths=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /preservation_copy/{allPaths=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Public complaint attachment intake: write-only (no public read/list) with size & MIME enforcement
+    match /complaint_attachments/{requestId}/{fileName} {
+      allow read, delete, update: if false;
+      allow create: if requestId.matches('^[a-zA-Z0-9_\\-]{4,128}$')
+        && fileName.size() >= 3
+        && fileName.size() <= 180
+        && request.resource != null
+        && request.resource.size > 0
+        && request.resource.size <= 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/(jpeg|png|webp)|application/pdf');
+    }
+  }
+}

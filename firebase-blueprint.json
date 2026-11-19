@@ -1,0 +1,334 @@
+{
+  "entities": {
+    "HeritageRecord": {
+      "title": "HeritageRecord",
+      "description": "Hồ sơ tư liệu di sản công khai với 15 trường lõi Dublin Core và thông tin nơi lưu giữ, loại bản, quyền khai thác.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "dcTitle": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "dcCreator": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "dcSubject": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "dcDescription": { "type": "string", "minLength": 1, "maxLength": 3000 },
+        "dcPublisher": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "dcContributor": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "dcDate": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "dcType": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "dcFormat": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "dcIdentifier": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^[A-Z0-9_\\-\\.]+$" },
+        "dcSource": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "dcLanguage": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "dcRelation": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "dcCoverage": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "dcRights": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "currentCustodyLocation": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "historicalCreationLocation": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "displayedVersionType": {
+          "type": "string",
+          "enum": ["Bản gốc", "Bản sao", "Bản số hóa", "Ảnh chụp", "Tư liệu phái sinh", "Bản số của bản gốc", "Bản số của bản sao"]
+        },
+        "originalCondition": { "type": "string", "enum": ["Tốt", "Hư hại nhẹ", "Hư hại nặng", "Không rõ"] },
+        "registrationNumber": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "publicationAuthorizer": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "authorizerRole": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "consentDate": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "allowedScope": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "allowedDuration": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "usageConditions": { "type": "string", "minLength": 1, "maxLength": 600 },
+        "nonDisclosedParts": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "verificationLevel": { "type": "string", "enum": ["Đã kiểm", "Chưa kiểm", "Chưa đọc được"] },
+        "verifierName": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "verificationDate": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "digitizerName": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "digitizationDate": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "originalFileInfo": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "displayFileInfo": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "originalDigitalRelation": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "rightsHistorySummary": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "uncertainPoints": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "sourceReferenceIds": { "type": "array", "maxLength": 20 },
+        "rightsStatus": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "visibilityStatus": { "type": "string", "enum": ["public", "hidden", "takedown_pending", "draft"] },
+        "canDisplayImage": { "type": "boolean" },
+        "canDownload": { "type": "boolean" },
+        "recordGroup": { "type": "string", "maxLength": 200 },
+        "publicVerificationBasis": { "type": "string", "maxLength": 600 },
+        "dimensions": { "type": "string", "maxLength": 120 },
+        "material": { "type": "string", "maxLength": 160 },
+        "identifyingFeatures": { "type": "string", "maxLength": 500 },
+        "locationDisclosureLevel": { "type": "string", "maxLength": 120 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "id", "dcTitle", "dcCreator", "dcSubject", "dcDescription", "dcPublisher", "dcContributor",
+        "dcDate", "dcType", "dcFormat", "dcIdentifier", "dcSource", "dcLanguage", "dcRelation",
+        "dcCoverage", "dcRights", "currentCustodyLocation", "historicalCreationLocation",
+        "displayedVersionType", "originalCondition", "registrationNumber", "publicationAuthorizer",
+        "authorizerRole", "consentDate", "allowedScope", "allowedDuration", "usageConditions",
+        "nonDisclosedParts", "verificationLevel", "verifierName", "verificationDate",
+        "digitizerName", "digitizationDate", "originalFileInfo", "displayFileInfo",
+        "originalDigitalRelation", "rightsHistorySummary", "uncertainPoints", "sourceReferenceIds",
+        "rightsStatus", "visibilityStatus", "canDisplayImage", "canDownload", "createdAt", "updatedAt"
+      ]
+    },
+    "RecordVersion": {
+      "title": "RecordVersion",
+      "description": "Phiên bản của tư liệu (Bản gốc, Bản sao, Bản số hóa, Ảnh chụp, Tư liệu phái sinh).",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "recordId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "versionType": {
+          "type": "string",
+          "enum": ["Bản gốc", "Bản sao", "Bản số hóa", "Ảnh chụp", "Tư liệu phái sinh", "Bản số của bản gốc", "Bản số của bản sao"]
+        },
+        "derivedFromVersionId": { "type": "string", "maxLength": 128 },
+        "derivedFromDescription": { "type": "string", "maxLength": 300 },
+        "creatorOrDigitizer": { "type": "string", "maxLength": 200 },
+        "digitizingUnit": { "type": "string", "maxLength": 200 },
+        "createdDateLabel": { "type": "string", "maxLength": 80 },
+        "conditionOrQuality": { "type": "string", "maxLength": 200 },
+        "notes": { "type": "string", "maxLength": 600 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "recordId", "versionType", "derivedFromDescription", "creatorOrDigitizer", "createdDateLabel", "createdAt"]
+    },
+    "RecordFile": {
+      "title": "RecordFile",
+      "description": "Quản lý quyền hiển thị & tải xuống độc lập cho từng hình ảnh và phân tách 4 nhóm tệp.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "recordId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "fileCategory": {
+          "type": "string",
+          "enum": ["original_master", "preservation_copy", "access_copy", "rights_evidence", "display_web", "copy_file"]
+        },
+        "caption": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "sourceCredit": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "photographerOrProvider": { "type": "string", "maxLength": 200 },
+        "versionType": {
+          "type": "string",
+          "enum": ["Bản gốc", "Bản sao", "Bản số hóa", "Ảnh chụp", "Tư liệu phái sinh", "Bản số của bản gốc", "Bản số của bản sao"]
+        },
+        "imageStatus": {
+          "type": "string",
+          "enum": [
+            "Ảnh được phép xem",
+            "Ảnh được phép công bố",
+            "Ảnh được phép tải xuống",
+            "Ảnh chỉ được sử dụng trong phạm vi nhất định",
+            "Ảnh chưa xác minh quyền",
+            "Ảnh bị yêu cầu tạm ẩn",
+            "Ảnh bị thu hồi sự đồng ý",
+            "Ảnh không được phép khai thác"
+          ]
+        },
+        "allowedImageScope": { "type": "string", "maxLength": 400 },
+        "rightsBasisSummary": { "type": "string", "maxLength": 500 },
+        "resolution": { "type": "string", "maxLength": 80 },
+        "fileSizeKb": { "type": "number" },
+        "createdDateLabel": { "type": "string", "maxLength": 80 },
+        "displayAllowed": { "type": "boolean" },
+        "downloadAllowed": { "type": "boolean" },
+        "isPubliclyReadable": { "type": "boolean" },
+        "viewScope": { "type": "string", "enum": ["Toàn trang", "Cận cảnh", "Khác"] },
+        "mediaUrl": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "recordId", "fileCategory", "caption", "sourceCredit", "versionType", "imageStatus", "displayAllowed", "downloadAllowed", "isPubliclyReadable", "createdAt"]
+    },
+    "RecordHolder": {
+      "title": "RecordHolder",
+      "description": "Đơn vị hoặc cá nhân đang lưu giữ vật mang tin.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "recordId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "holderName": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "holderType": { "type": "string", "enum": ["Gia đình", "Dòng họ", "Ban quản lý di tích", "Bảo tàng", "Trung tâm lưu trữ", "Cá nhân", "Tổ chức khác"] },
+        "publicLocationGeneral": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "custodyBasis": { "type": "string", "maxLength": 400 },
+        "disclosurePolicy": { "type": "string", "enum": ["Công khai địa danh hành chính chung", "Hạn chế vị trí chi tiết"] },
+        "verificationStatus": { "type": "string", "enum": ["Đã kiểm", "Chưa kiểm", "Chưa đủ bằng chứng"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "recordId", "holderName", "holderType", "publicLocationGeneral", "disclosurePolicy", "verificationStatus", "createdAt"]
+    },
+    "RightsHolder": {
+      "title": "RightsHolder",
+      "description": "Chủ thể có quyền liên quan đến tư liệu.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "recordId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "subjectName": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "roleType": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "roleBasis": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "relatedRightsScope": { "type": "string", "minLength": 1, "maxLength": 400 },
+        "evidenceSummary": { "type": "string", "minLength": 1, "maxLength": 400 },
+        "verificationStatus": { "type": "string", "enum": ["Đã xác minh", "Chưa xác minh", "Đang chờ bổ sung"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "recordId", "subjectName", "roleType", "roleBasis", "relatedRightsScope", "evidenceSummary", "verificationStatus", "createdAt"]
+    },
+    "Permission": {
+      "title": "Permission",
+      "description": "Trạng thái quyền sử dụng gắn với tư liệu.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "recordId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "status": { "type": "string" },
+        "allowsDisplay": { "type": "boolean" },
+        "allowsDownloadLimited": { "type": "boolean" },
+        "allowsDownloadHighRes": { "type": "boolean" },
+        "allowsStudy": { "type": "boolean" },
+        "allowsResearch": { "type": "boolean" },
+        "allowsEdit": { "type": "boolean" },
+        "allowsPrint": { "type": "boolean" },
+        "allowsCommercial": { "type": "boolean" },
+        "prohibitedActs": { "type": "string", "maxLength": 500 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "recordId", "status", "allowsDisplay", "allowsDownloadLimited", "allowsDownloadHighRes", "allowsStudy", "allowsResearch", "allowsEdit", "allowsPrint", "allowsCommercial", "updatedAt"]
+    },
+    "SourceReference": {
+      "title": "SourceReference",
+      "description": "Nguồn tham khảo chính thống, lưu trữ, bảo tàng và học thuật.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "organizationOrAuthor": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "sourceType": { "type": "string" },
+        "url": { "type": "string", "maxLength": 500 },
+        "publishedDate": { "type": "string", "maxLength": 80 },
+        "accessedDate": { "type": "string", "maxLength": 80 },
+        "usedContentSummary": { "type": "string", "maxLength": 600 },
+        "linkStatus": { "type": "string", "enum": ["Chưa kiểm tra", "Hoạt động", "Không truy cập được"] },
+        "isOfficialSource": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "name", "organizationOrAuthor", "sourceType", "url", "accessedDate", "usedContentSummary", "linkStatus", "isOfficialSource", "createdAt"]
+    },
+    "ConsentRecord": {
+      "title": "ConsentRecord",
+      "description": "Bản ghi sự đồng ý công bố và khai thác hình ảnh có căn cứ.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "recordIds": { "type": "array", "maxLength": 20 },
+        "consenterName": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "consenterRole": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "consentDate": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "allowedScopes": { "type": "array", "maxLength": 14 },
+        "conditions": { "type": "string", "maxLength": 600 },
+        "expiryDate": { "type": "string", "maxLength": 80 },
+        "evidenceSummary": { "type": "string", "minLength": 1, "maxLength": 400 },
+        "effectiveStatus": { "type": "string" },
+        "recordedByName": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "withdrawnAt": { "type": "string", "maxLength": 80 },
+        "withdrawalReason": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "recordIds", "consenterName", "consenterRole", "consentDate", "allowedScopes", "evidenceSummary", "effectiveStatus", "recordedByName", "createdAt", "updatedAt"]
+    },
+    "UsageRequest": {
+      "title": "UsageRequest",
+      "description": "Yêu cầu xin phép sử dụng hình ảnh tư liệu công khai (chỉ cho phép ghi mới, cấm đọc danh sách để bảo vệ PII).",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "requesterName": { "type": "string", "minLength": 2, "maxLength": 160 },
+        "organization": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "contactInfo": { "type": "string", "minLength": 4, "maxLength": 200 },
+        "recordIdentifier": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "purpose": { "type": "string", "minLength": 2, "maxLength": 500 },
+        "scope": { "type": "string", "minLength": 2, "maxLength": 300 },
+        "usageFormat": { "type": "string", "minLength": 2, "maxLength": 200 },
+        "duration": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "pledgeAccepted": { "type": "boolean" },
+        "additionalNotes": { "type": "string", "maxLength": 1000 },
+        "status": { "type": "string", "enum": ["Mới tiếp nhận"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "requesterName", "organization", "contactInfo", "recordIdentifier", "purpose", "scope", "usageFormat", "duration", "status", "createdAt", "updatedAt"]
+    },
+    "TakedownRequest": {
+      "title": "TakedownRequest",
+      "description": "Yêu cầu khiếu nại, tạm ẩn, gỡ bỏ hoặc chỉnh sửa thông tin sai lệch (chỉ cho phép ghi mới, cấm đọc PII).",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "requestCategory": {
+          "type": "string",
+          "enum": [
+            "Báo cáo sử dụng hình ảnh trái phép",
+            "Yêu cầu tạm ẩn hình ảnh",
+            "Yêu cầu gỡ bỏ tư liệu",
+            "Yêu cầu chỉnh sửa thông tin sai lệch"
+          ]
+        },
+        "requesterName": { "type": "string", "minLength": 2, "maxLength": 160 },
+        "requesterRole": { "type": "string", "minLength": 2, "maxLength": 160 },
+        "contactInfo": { "type": "string", "minLength": 4, "maxLength": 200 },
+        "recordIdentifier": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "reason": { "type": "string", "minLength": 5, "maxLength": 1000 },
+        "affectedScope": { "type": "string", "minLength": 2, "maxLength": 300 },
+        "rightsBasisDescription": { "type": "string", "maxLength": 600 },
+        "supportingUrl": { "type": "string", "maxLength": 500 },
+        "attachmentMeta": { "type": "object" },
+        "status": { "type": "string", "enum": ["Tiếp nhận khẩn"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "requesterName", "requesterRole", "contactInfo", "recordIdentifier", "reason", "affectedScope", "status", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/heritage_records/{recordId}": {
+      "schema": { "$ref": "#/entities/HeritageRecord" },
+      "description": "Hồ sơ tư liệu di sản công khai (chỉ đọc ở phía client)."
+    },
+    "/record_versions/{versionId}": {
+      "schema": { "$ref": "#/entities/RecordVersion" },
+      "description": "Phiên bản bản gốc, bản sao, bản số hóa, ảnh chụp và tư liệu phái sinh (chỉ đọc)."
+    },
+    "/record_files/{fileId}": {
+      "schema": { "$ref": "#/entities/RecordFile" },
+      "description": "Tệp hiển thị công khai được gắn cờ isPubliclyReadable == true (khóa original_master & rights_evidence)."
+    },
+    "/record_holders/{holderId}": {
+      "schema": { "$ref": "#/entities/RecordHolder" },
+      "description": "Thông tin đơn vị hoặc cá nhân đang lưu giữ vật mang tin (chỉ đọc)."
+    },
+    "/rights_holders/{rightsHolderId}": {
+      "schema": { "$ref": "#/entities/RightsHolder" },
+      "description": "Chủ thể quyền liên quan được công khai minh bạch (chỉ đọc)."
+    },
+    "/permissions/{permissionId}": {
+      "schema": { "$ref": "#/entities/Permission" },
+      "description": "Trạng thái quyền khai thác công khai (chỉ đọc)."
+    },
+    "/source_references/{sourceId}": {
+      "schema": { "$ref": "#/entities/SourceReference" },
+      "description": "Thư viện nguồn tham khảo chính thống và lưu trữ (chỉ đọc)."
+    },
+    "/consent_records/{consentId}": {
+      "schema": { "$ref": "#/entities/ConsentRecord" },
+      "description": "Thông tin tóm tắt sự đồng ý công khai (chỉ đọc)."
+    },
+    "/usage_requests/{requestId}": {
+      "schema": { "$ref": "#/entities/UsageRequest" },
+      "description": "Tiếp nhận đơn xin phép sử dụng hình ảnh (chỉ cho phép tạo mới, cấm đọc PII)."
+    },
+    "/takedown_requests/{requestId}": {
+      "schema": { "$ref": "#/entities/TakedownRequest" },
+      "description": "Tiếp nhận yêu cầu khiếu nại, tạm ẩn, gỡ bỏ tư liệu (chỉ cho phép tạo mới, cấm đọc PII)."
+    }
+  }
+}

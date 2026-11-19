@@ -1,0 +1,6 @@
+{
+  "name": "Di Sản Số — Heritage Rights & Digital Museum",
+  "description": "Nền tảng quản lý quyền sở hữu, bản sao và khai thác hình ảnh di sản (Dự án J02 — Trần Thanh Bình, PH61165, Group 1, IMTA TECH x FPT Polytechnic).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
